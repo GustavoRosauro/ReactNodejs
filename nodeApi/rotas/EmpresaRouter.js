@@ -8,4 +8,7 @@ router.get('/pessoas',(req,res)=>{
 router.post('/pessoa',(req,res)=>{
     empresa.post(req,res);
 })
+router.delete('/pessoa/:id',(req,res)=>{
+    empresa.delete(req,res);
+})
 module.exports = router;

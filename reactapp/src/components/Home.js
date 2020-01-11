@@ -17,6 +17,19 @@ export default class Home extends Component {
                 console.log(this.state.pessoas);
             });
     }
+    async removerPessoa(id){
+        await fetch(`http://localhost:4000/pessoa/${id}`,{
+            method:'DELETE',
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res =>{
+            if(res){
+                this.carregaUsuarios();
+            }
+        })
+    }
     render() {
         return (
             <table className='table'>
@@ -35,6 +48,7 @@ export default class Home extends Component {
                             <td>{pessoa.IDADE}</td>
                             <td>{pessoa.ENDERECO}</td>
                             <td>{pessoa.CPF}</td>
+                            <td><button className="btn btn-danger" onClick={() => this.removerPessoa(pessoa.ID)}>Remover</button></td>
                         </tr>
                     )}
                 </tbody>

@@ -33,4 +33,8 @@ exports.post = (req,res)=>{
              ('${pessoa.nome}',${pessoa.idade},'${pessoa.email}','${pessoa.endereco}','${pessoa.cpf}')`);
              res.send(true);
 }
-
+exports.delete = (req,res)=>{
+    let id = req.params.id;
+    con.query(`DELETE FROM PESSOAFISICA WHERE ID = ${id}`);
+    res.send(true);
+}
