@@ -11,4 +11,8 @@ router.post('/pessoa',(req,res)=>{
 router.delete('/pessoa/:id',(req,res)=>{
     empresa.delete(req,res);
 })
+router.put('/pessoa/:id',(req,res)=>{
+    empresa.edit(req,res);
+})
+
 module.exports = router;

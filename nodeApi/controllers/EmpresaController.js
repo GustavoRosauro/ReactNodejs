@@ -38,3 +38,13 @@ exports.delete = (req,res)=>{
     con.query(`DELETE FROM PESSOAFISICA WHERE ID = ${id}`);
     res.send(true);
 }
+exports.edit = (req,res)=>{
+    con.query(`UPDATE PESSOAFISICA 
+                SET NOME = '${req.body.NOME}'
+               ,IDADE = ${req.body.IDADE}
+               ,EMAIL = '${req.body.EMAIL}'
+               ,ENDERECO = '${req.body.ENDERECO}'
+               ,CPF = '${req.body.CPF}'
+               WHERE ID = ${req.params.id}`);
+    res.send(true);
+}
